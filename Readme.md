@@ -11,17 +11,19 @@ connect your repos and see the magic
 - Postgres
 - LangGraph
 - GitHub toolkit
+- Ollama
+- LLM Model="llama3.1"
 
 # Initial Setup
 
 - clone the repo
   ```bash
-    git clone https://github.com/learn-by-experiments/code-review-agent.git
+  git clone https://github.com/learn-by-experiments/code-review-agent.git
   ```
 - install dependencies
 
   ```bash
-    pipevn install
+  pipevn install
   ```
 
 - create a `.env` file with the following fields
@@ -32,4 +34,12 @@ connect your repos and see the magic
   PASSWORD=     <-- Database Password -->
   HOST=         <-- Database Host -->
   PORT=         <-- Database PORT -->
+  ```
+- pull the `llama3.1` model
+  ```bash
+  ollama pull llama3.1
+  ```
+- run the llm model using ollama
+  ```bash
+  ollama run llama3.1
   ```

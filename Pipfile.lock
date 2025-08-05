@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ed928ccfa098e576f2421fb7c3bbc94a9f75cf310363fe81b16b1b95e2eccfd9"
+            "sha256": "6e763cc81fea6aff87cc824b4cac02f9a1b6ceb384a96b4ab5b5060dcbac99f8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1092,6 +1092,15 @@
             "markers": "python_version >= '3.9' and python_version < '4.0'",
             "version": "==2.0.15"
         },
+        "langchain-ollama": {
+            "hashes": [
+                "sha256:4270c4b30b3f3d10850cb9a1183b8c77d616195e0d9717ac745ef7f7f6cc2b6e",
+                "sha256:b339bd3fcf913b8d606ad426ef39e7122695532507fcd85aa96271b3f33dc3df"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.9'",
+            "version": "==0.3.6"
+        },
         "langchain-openai": {
             "hashes": [
                 "sha256:4cd6d80a5b2ae471a168017bc01b2e0f01548328d83532400a001623624ede67",
@@ -1143,11 +1152,11 @@
         },
         "langsmith": {
             "hashes": [
-                "sha256:0bc07a060792c42b0333271f30c2ba51ce47a8d59a0b2bde855cede10f59b3fe",
-                "sha256:257a39238fad7d079c8571fbb5d1dcd24f3dcf7fedb1144c34065f62759ae492"
+                "sha256:2cb39a8af795ff4014e60ca07a73a9bcd89b67837193c9f6be22efb5c9c4c846",
+                "sha256:ce3a52809d37854bcb129affd8cd883025985891b82a46f2ae597c511283360d"
             ],
             "markers": "python_version >= '3.9'",
-            "version": "==0.4.10"
+            "version": "==0.4.11"
         },
         "markdown-it-py": {
             "hashes": [
@@ -1443,6 +1452,14 @@
             ],
             "markers": "python_version >= '3.11'",
             "version": "==2.3.2"
+        },
+        "ollama": {
+            "hashes": [
+                "sha256:4c8839f35bc173c7057b1eb2cbe7f498c1a7e134eafc9192824c8aecb3617506",
+                "sha256:5a799e4dc4e7af638b11e3ae588ab17623ee019e496caaf4323efbaa8feeff93"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==0.5.1"
         },
         "openai": {
             "hashes": [

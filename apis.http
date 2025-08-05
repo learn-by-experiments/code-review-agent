@@ -6,6 +6,13 @@ GET {{base_URL}}/health
 # Analyze the given pr
 
 POST {{base_URL}}/analyze-pr
+Content-Type: application/json
+
+{
+  "repo_url": "https://github.com/learn-by-experiments/sap-ui5-walkthrough",
+  "pr_number": 1,
+  "github_token": "PERSONAL_ACCESS_TOKEN"
+}
 
 ### 
 # check the status of the task
@@ -13,6 +20,7 @@ POST {{base_URL}}/analyze-pr
 GET {{base_URL}}/status/1
 
 ###
+# Get the results
 Get {{base_URL}}/results/1
 
 ###

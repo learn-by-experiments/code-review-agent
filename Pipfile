@@ -11,6 +11,7 @@ langchain-community = "*"
 generative-ai-hub-sdk = {extras = ["all"], version = "*"}
 sqlmodel = "*"
 psycopg2-binary = "*"
+langchain-ollama = "*"
 
 [dev-packages]
 ipykernel = "*"
