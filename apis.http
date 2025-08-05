@@ -1,0 +1,19 @@
+@base_URL = http://127.0.0.1:8000
+
+GET {{base_URL}}/health
+
+###
+# Analyze the given pr
+
+POST {{base_URL}}/analyze-pr
+
+### 
+# check the status of the task
+
+GET {{base_URL}}/status/1
+
+###
+Get {{base_URL}}/results/1
+
+###
+PUT  {{base_URL}}/results/1
