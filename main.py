@@ -3,7 +3,9 @@ from contextlib import asynccontextmanager
 import requests
 from agents.code_review_agent import code_review_agent
 from request_data_model.analyze_pr import PR
-from db.tasks import init_tasks_table, create_task, read_task
+from db.tasks import init_tasks_table, create_task, read_task, update_task, STATUS
+from langchain_core.messages import AIMessage
+from langchain_core.output_parsers.json import JsonOutputParser
 
 
 @asynccontextmanager
@@ -62,7 +64,6 @@ async def get_results(task_id: int):
 
 @app.post("/analyze-pr")
 async def analyze_pr(pr: PR):
-    task_id = create_task()
     if pr.repo_url.host != "github.com":
         raise HTTPException(
             status_code=400,
@@ -77,7 +78,6 @@ async def analyze_pr(pr: PR):
     first, owner, repo = path_parameters
     personal_access_token = pr.github_token
     pull_request_no = pr.pr_number
-    print(personal_access_token)
     res = requests.get(
         f"https://api.github.com/repos/{owner}/{repo}/pulls/{pull_request_no}",
         headers={
@@ -85,5 +85,11 @@ async def analyze_pr(pr: PR):
             "Accept": "application/vnd.github.diff",
         },
     )
-    print(code_review_agent.invoke({"messages": res.content.decode()}))
+    if res.status_code != 200:
+        raise HTTPException(status_code=500, detail="Failed to connect to github")
+    task_id = create_task()
+    agent_response = code_review_agent.invoke({"messages": res.content.decode()})
+    agent_message: AIMessage = agent_response["messages"][-1]
+    result = JsonOutputParser().parse(agent_message.content)
+    update_task(taskid=task_id, status=STATUS.COMPLETED, result=result)
     return {"task_id": task_id, "message": "code review is in progress"}

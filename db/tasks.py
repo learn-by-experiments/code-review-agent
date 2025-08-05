@@ -91,11 +91,11 @@ def update_task(taskid, status=None, result=None):
             (json.dumps(result), taskid),
         )
         row = cur.fetchone()
-    if row:
-        return {"taskid": row[0], "status": row[1], "result": row[2]}
     conn.commit()
     cur.close()
     conn.close()
+    if row:
+        return {"taskid": row[0], "status": row[1], "result": row[2]}
 
 
 def delete_task(taskid):
